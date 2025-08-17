@@ -56,7 +56,7 @@ object Teamcity2_Build : BuildType({
         }
     }
 
-    triggers {
+    țriggers {
         vcs {
         }
     }
