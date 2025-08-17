@@ -66,6 +66,10 @@ object Teamcity2_Build : BuildType({
             id = "simpleRunner4"
             scriptContent = "cd"
         }
+        script {
+            id = "simpleRunner_1"
+            scriptContent = """echo "Hello""""
+        }
     }
 
     triggers {
