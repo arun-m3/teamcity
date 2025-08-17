@@ -1,4 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -25,4 +28,43 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2025.03"
 
 project {
+
+    subProject(Teamcity2)
 }
+
+
+object Teamcity2 : Project({
+    name = "Teamcity2"
+
+    vcsRoot(Teamcity2_HttpsGithubComArunM3teamcity2refsHeadsMain)
+
+    buildType(Teamcity2_Build)
+})
+
+object Teamcity2_Build : BuildType({
+    name = "Build"
+
+    vcs {
+        root(Teamcity2_HttpsGithubComArunM3teamcity2refsHeadsMain)
+    }
+
+    triggers {
+        vcs {
+        }
+    }
+
+    features {
+        perfmon {
+        }
+    }
+})
+
+object Teamcity2_HttpsGithubComArunM3teamcity2refsHeadsMain : GitVcsRoot({
+    name = "https://github.com/arun-m3/teamcity2#refs/heads/main"
+    url = "https://github.com/arun-m3/teamcity2"
+    branch = "refs/heads/main"
+    branchSpec = "refs/heads/*"
+    authMethod = password {
+        password = "credentialsJSON:3afb7e0f-f544-46d4-bc88-a8c126bc40c3"
+    }
+})
