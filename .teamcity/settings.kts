@@ -58,6 +58,10 @@ object Teamcity2_Build : BuildType({
             id = "simpleRunner2"
             scriptContent = "ls"
         }
+        script {
+            id = "simpleRunner3"
+            scriptContent = "ls"
+        }
     }
 
     triggers {
