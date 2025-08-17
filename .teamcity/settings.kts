@@ -60,7 +60,7 @@ object Teamcity2_Build : BuildType({
         }
         script {
             id = "simpleRunner3"
-            scriptContent = "ls"
+            scriptContent = "pwd"
         }
         script {
             id = "simpleRunner4"
