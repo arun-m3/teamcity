@@ -54,6 +54,10 @@ object Teamcity2_Build : BuildType({
             id = "simpleRunner"
             scriptContent = "whoami"
         }
+        script {
+            id = "simpleRunner"
+            scriptContent = "ls"
+        }
     }
 
     triggers {
