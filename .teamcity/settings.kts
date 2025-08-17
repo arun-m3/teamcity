@@ -55,7 +55,7 @@ object Teamcity2_Build : BuildType({
             scriptContent = "whoami"
         }
         script {
-            id = "simpleRunner"
+            id = "simpleRunner2"
             scriptContent = "ls"
         }
     }
